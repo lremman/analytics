@@ -41,6 +41,8 @@ class VkBase
         $response = $request->send();
         $method_data = $response->json();
 
+        dd($method_data);
+
         if (array_key_exists('response', $method_data)) {
 
             if (self::$cache) {
