@@ -75,8 +75,8 @@
 
 		    var options = {
 		      title: 'Оцінка записів профіля',
-		      width: 900,
-		      height:400,
+		      width: 500,
+		      height:200,
 		      legend: { position: 'none' },
 		      chart: { subtitle: '' },
 		      axes: {
@@ -84,7 +84,7 @@
 		          0: { side: 'top', label: 'Рейтинг по оцінках записів'} // Top x-axis.
 		        }
 		      },
-		      bar: { groupWidth: "100%" }
+		      bar: { groupWidth: "50%" }
 		    };
 
 		    var chart = new google.charts.Bar($parent[0]);
