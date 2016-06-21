@@ -67,8 +67,6 @@ class LoginController extends Controller
             ],
         ]);
 
-        dd($data);
-
         $data = array_first($data, function ($key, $value) {
             return $value;
         });
