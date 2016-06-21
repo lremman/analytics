@@ -30,18 +30,16 @@ class VkBase
 
         $data = self::buildRequest($data);
 
-        $url = 'https://api.vk.com/method/' . $method;
+        $url = 'https://api.vk.com/method/' . $method . '?' . $data;
 
         if ($access_token) {
-            $data .= $access_token;
+            $url .= $access_token;
         }
 
         $client = new Client();
         $request = $client->get($url);
         $response = $request->send();
         $method_data = $response->json();
-
-        dd($method_data);
 
         if (array_key_exists('response', $method_data)) {
 
