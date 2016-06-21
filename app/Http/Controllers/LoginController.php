@@ -30,8 +30,7 @@ class LoginController extends Controller
 
         return $this->goToUrl('https://oauth.vk.com/authorize', [
             'client_id' => env('VK_APP_ID'),
-            'scope' =>  /*env('VK_PERMISSIONS_SCOPE') . */'nohttps',
-            //'scope' => env('VK_PERMISSIONS_SCOPE'),
+            'scope' => env('VK_PERMISSIONS_SCOPE'),
             'redirect_uri'  => route('authentication'),
             'response_type' => 'code',
             'v=API_VERSION' => env('VK_API_VERSION'),
@@ -59,7 +58,6 @@ class LoginController extends Controller
         \Session::put('vk_access_token', $response_data['access_token']);
         \Session::put('vk_user_id', $response_data['user_id']);
         \Session::put('vk_expires_in', $response_data['expires_in']);
-        \Session::put('vk_secret', $response_data['secret']);
 
         $data = Vk::get('users.get', [
             'fields'    => [
