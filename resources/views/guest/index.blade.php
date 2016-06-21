@@ -53,7 +53,7 @@
 
 		<div class="content-wrapper">
 		    <div class="content">
-		        <h2 class="content-head is-center">Активний учасник соціальної мережі VK.COM ?</h2>
+		        <h2 class="content-head is-center">Активний учасник соціальної мережі VK.COM ? ТРАЛЯЛЯ</h2>
 
 		        <div class="pure-g">
 		            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
