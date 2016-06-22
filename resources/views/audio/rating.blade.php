@@ -5,10 +5,3 @@
 		</div>
 	</div>
 </div>
-<div class="text-center" id="rating-pagination">
-	<ul class="pagination pagination-sm">
-	    <li class="disabled"><a class="paginate-prev" href="#" >«</a></li>
-	    <li class="active"><a class="js-paginate-active" href="#" >1</a></li>
-	    <li><a class="paginate-next" href="#">»</a></li>
-  	</ul>
-</div>

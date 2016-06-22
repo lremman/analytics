@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="A layout example that shows off a responsive product landing page.">
-		<title>Landing Page &ndash; Layout Examples &ndash; Pure</title>
+		<title>RDEV ANALYTICS</title>
 		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
 		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
@@ -18,9 +18,9 @@
 		        <a class="pure-menu-heading" href="">Rdev Analytics</a>
 
 		        <ul class="pure-menu-list">
-		            <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">Home</a></li>
-		            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Tour</a></li>
 		            @if(Vk::auth())
+			            <li class="pure-menu-item"><a href="{{ route('likes') }}" class="pure-menu-link">Мені подобається</a></li>
+			            <li class="pure-menu-item"><a href="{{ route('audio') }}" class="pure-menu-link">Жанри аудіо</a></li>
 		            	<li class="pure-menu-item"><a href="{{route('logout')}}" class="pure-menu-link">Вийти</a></li>
 		            @else
 		            	<li class="pure-menu-item"><a href="{{route('login')}}" class="pure-menu-link">Увійти</a></li>
@@ -33,9 +33,9 @@
 		    <div class="splash">
 		        <div class="splash-head-with-user">
 			        <div id="vk-user-photo">
-			        	<img src="">
+			        	<img width="100" height="100" src="{{public_asset('src/default-teacher-avatar.png')}}">
 			        </div>
-		        	<span id="vk-user-text"></span>
+		        	<span id="vk-user-text">Привіт, гость</span>
 		        </div>
 		        <p class="splash-subhead">
 		            Do something interesting:)
@@ -53,44 +53,44 @@
 
 		<div class="content-wrapper">
 		    <div class="content">
-		        <h2 class="content-head is-center">Активний учасник соціальної мережі VK.COM ? ТРАЛЯЛЯ</h2>
+		        <h2 class="content-head is-center">Активний учасник соціальної мережі VK.COM ?</h2>
 
 		        <div class="pure-g">
 		            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
 
 		                <h3 class="content-subhead">
-		                    <i class="fa fa-rocket"></i>
-		                    Get Started Quickly
+		                    <i class="fa fa-users"></i>
+		                    Дослідіть своїх друзів
 		                </h3>
 		                <p>
-		                    Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
+		                    Проводьте різноманітні дослідження з даними своєї сторінки та даними сторінок своїх друзів.
 		                </p>
 		            </div>
 		            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
 		                <h3 class="content-subhead">
-		                    <i class="fa fa-mobile"></i>
-		                    Responsive Layouts
+		                    <i class="fa fa-heart"></i>
+		                    Порахуйте кількість лайків
 		                </h3>
 		                <p>
-		                    Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
+		                    Порахуйте кількість "мені подобається" на своїй сторінці та сторінках друзів.
 		                </p>
 		            </div>
 		            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
 		                <h3 class="content-subhead">
-		                    <i class="fa fa-th-large"></i>
-		                    Modular
+		                    <i class="fa fa-music"></i>
+		                    Визначайте жанри музики
 		                </h3>
 		                <p>
-		                    Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
+		                    Визначте свох найулюбленіші жанри музики, та жанри своїх друзів.
 		                </p>
 		            </div>
 		            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
 		                <h3 class="content-subhead">
-		                    <i class="fa fa-check-square-o"></i>
-		                    Plays Nice
+		                    <i class="fa fa-signal "></i>
+		                    Будуйте діаграми
 		                </h3>
 		                <p>
-		                    Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
+		                    На основі досліджень будуйте діаграми, та діліться результатами із свохми друзями.
 		                </p>
 		            </div>
 		        </div>
@@ -98,65 +98,46 @@
 
 		    <div class="ribbon l-box-lrg pure-g">
 		        <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
-		            <img class="pure-img-responsive" alt="File Icons" width="300" src="img/common/file-icons.png">
+		            <img class="pure-img-responsive" alt="File Icons" width="300" src="{{public_asset('src/918611187.jpg')}}">
 		        </div>
 		        <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
 
-		            <h2 class="content-head content-head-ribbon">Laboris nisi ut aliquip.</h2>
+		            <h2 class="content-head content-head-ribbon">RDEV NANLYTICS</h2>
 
 		            <p>
-		                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		                consequat. Duis aute irure dolor.
+		                RDEV ANALYTICS - веб ресурс для аналітики даних із соціальної мережі vk.com. Даний ресурс є інструментом для досліджень своєї сторінки та сторінок своїх друзів, визначення їхніх інтересів та вподобань. 
 		            </p>
 		        </div>
 		    </div>
 
 		    <div class="content">
-		        <h2 class="content-head is-center">Dolore magna aliqua. Uis aute irure.</h2>
+		        <h2 class="content-head is-center">Як зв'язатися з нами</h2>
 
 		        <div class="pure-g">
 		            <div class="l-box-lrg pure-u-1 pure-u-md-2-5">
-		                <form class="pure-form pure-form-stacked">
-		                    <fieldset>
-
-		                        <label for="name">Your Name</label>
-		                        <input id="name" type="text" placeholder="Your Name">
-
-
-		                        <label for="email">Your Email</label>
-		                        <input id="email" type="email" placeholder="Your Email">
-
-		                        <label for="password">Your Password</label>
-		                        <input id="password" type="password" placeholder="Your Password">
-
-		                        <button type="submit" class="pure-button">Sign Up</button>
-		                    </fieldset>
-		                </form>
+		                <img src="{{public_asset('src/map.jpg')}}" width="500">
 		            </div>
 
 		            <div class="l-box-lrg pure-u-1 pure-u-md-3-5">
-		                <h4>Contact Us</h4>
-		                <p>
-		                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		                    consequat.
-		                </p>
-
-		                <h4>More Information</h4>
-		                <p>
-		                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		                    tempor incididunt ut labore et dolore magna aliqua.
-		                </p>
+		            	<h4>Ідеї та пропозиції</h4>
+			            <p>
+			                Якщо у вас виникли якісь запитання, нові ідеї щодо функціоналу, або ж цікаві пропозиції, будьласка, висловлюйте їх нам.
+			            </p>
+		                <h4>Наші контакти</h4>
+			            <p>
+			            
+			                <b>Email:</b> <a href="mailto:rom.loboda@gmail.com">rom.loboda@gmail.com</a><br><br>
+			                <a href="https://vk.com/lremman"><img src="http://image0.flaticon.com/icons/png/128/3/3886.png" alt="Vkontakte logo" title="Vkontakte logo" width="64" height="64"></a>
+			                <a href="https://www.facebook.com/roman.loboda.56"><img src="http://image0.flaticon.com/icons/png/128/23/23747.png" alt="Facebook" title="Facebook" width="64" height="64"></a>
+			                <a href="https://plus.google.com/114795936364897607226"><img src="http://image0.flaticon.com/icons/png/128/7/7541.png" alt="Social google plus square button" title="Social google plus square button" width="64" height="64"></a>
+			            </p>
 		            </div>
 		        </div>
 
 		    </div>
 
 		    <div class="footer l-box is-center">
-		        View the source of this layout to learn more. Made with love by the YUI Team.
+		        RDEV ANALYTICS - 2016
 		    </div>
 
 		</div>

@@ -11,16 +11,16 @@
     <div class="navbar-collapse collapse" id="navbar-main">
       <ul class="nav navbar-nav">
 
-        <li>
-          <a href="{{ route('likes') }}">Мені подобається</a>
-        </li>
-        <li>
-          <a href="{{ route('audio') }}">Жанри музики</a>
-        </li>
         
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="{{ route('likes') }}">Мені подобається</a>
+        </li>
+        <li>
+          <a href="{{ route('audio') }}">Жанри аудіо</a>
+        </li>
         <li><a href="{{route('logout')}}">Вийти</a></li>
       </ul>
 
