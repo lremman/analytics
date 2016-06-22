@@ -4,7 +4,7 @@
 
 	@if($user)
 
-		<div class="panel panel-success">
+		<div class="panel panel-primary">
 			<div class="panel-heading">
 			  <h3 class="panel-title">{{ $user['first_name'] }} {{ $user['last_name'] }}</h3>
 			</div>
@@ -14,6 +14,8 @@
 						<img src="{{ $user['photo_50'] }}">
 					</div>
 					<div class="col-md-6">
+						Переглянуто аудіозаписів: {{ $real_count }}
+						Визначено жанри: {{ $all_tracks }}
 					</div>
 				</div>
 
@@ -30,7 +32,7 @@
 							@if($counter < 10)
 								<tr>
 									<td>{{$genre}}</td>
-									<td>{{$count}}</td>
+									<td>{{ ceil($count * $track_weight) }}%</td>
 								</tr>
 							@endif
 							<?php $counter++; ?>

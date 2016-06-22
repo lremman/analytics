@@ -35,7 +35,7 @@
 			        <div id="vk-user-photo">
 			        	<img width="100" height="100" src="{{public_asset('src/default-teacher-avatar.png')}}">
 			        </div>
-		        	<span id="vk-user-text">Привіт, гость</span>
+		        	<span id="vk-user-text">Привіт, гість</span>
 		        </div>
 		        <p class="splash-subhead">
 		            Do something interesting:)
@@ -60,7 +60,7 @@
 
 		                <h3 class="content-subhead">
 		                    <i class="fa fa-users"></i>
-		                    Дослідіть своїх друзів
+		                    Дослідіть дані своїх друзів
 		                </h3>
 		                <p>
 		                    Проводьте різноманітні дослідження з даними своєї сторінки та даними сторінок своїх друзів.
@@ -81,7 +81,7 @@
 		                    Визначайте жанри музики
 		                </h3>
 		                <p>
-		                    Визначте свох найулюбленіші жанри музики, та жанри своїх друзів.
+		                    Визначте свої найулюбленіші жанри музики, та жанри своїх друзів.
 		                </p>
 		            </div>
 		            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">

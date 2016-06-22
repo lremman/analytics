@@ -9,14 +9,25 @@ use Response;
 
 class AudioController extends Controller
 {
+    /**
+     *
+     */
+    public function __construct() 
+    {
+        if(!Vk::auth()) {
+            return \Redirect::to(route('guest'))->send();
+        }
+    }
 
     public $postsMaxCount = 500;
 
     public $audiosMaxCount = 500;
 
-    public $audioOwnerId = 84304295;
-
     public $audioRealCount = 0;
+
+    public $all_tracks = 0;
+
+    public $track_weight = 0;
 
     public $noAudio;
 
@@ -96,6 +107,8 @@ class AudioController extends Controller
 
         });
 
+        $genres_json = $this->getGraphJson($genres);
+
         $users = vk_cache(function () use ($genres) {
 
             $users_raw = Vk::get('users.get', [
@@ -106,14 +119,18 @@ class AudioController extends Controller
             return collect($users_raw)->keyBy('uid');
         });
 
+
         $html = view('audio.ajax', [
+            'all_tracks' => $this->all_tracks,
+            'track_weight' => $this->track_weight,
+            'real_count' => $this->audioRealCount,
             'genres' => $genres, 
             'users' => $users]
         )->render();
 
         return Response::json([
             'html' => $html,
-            'graph' => $this->getGraphJson($genres),
+            'graph' => $genres_json,
         ]);
 
     }
@@ -132,12 +149,16 @@ class AudioController extends Controller
             }
         }
 
+        $this->all_tracks = array_sum($genres_all);
+
+        $this->track_weight = 100/$this->all_tracks;
+
         arsort($genres_all);
 
         $genres = [];
 
         foreach($genres_all as $genre => $count) {
-            $genres[] = [$genre => $count];
+            $genres[] = [$genre => $count * $this->track_weight];
         }
 
         return $genres;
@@ -228,6 +249,9 @@ class AudioController extends Controller
                 $user_audio = $user_audio ?: [],
             ];
         }
+
+        $this->audioRealCount += count($audios[0][1]);
+
         return $audios;
     }
 
@@ -245,6 +269,8 @@ class AudioController extends Controller
                 $audios = array_merge($audios, $wall_audio);
             }
         }
+
+        $this->audioRealCount += count($audios[0][1]);
 
         return $audios;
     }

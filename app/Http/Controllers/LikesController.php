@@ -9,6 +9,15 @@ use Response;
 
 class LikesController extends Controller
 {
+    /**
+     *
+     */
+    public function __construct() 
+    {
+        if(!Vk::auth()) {
+            return \Redirect::to(route('guest'))->send();
+        }
+    }
 
     public $postsMaxCount = 100;
 
