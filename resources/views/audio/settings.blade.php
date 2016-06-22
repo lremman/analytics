@@ -18,6 +18,18 @@
 					<br>
 				</div>
 			</div>
+			
+			<div class="form-group">
+				<label for="textArea" class="col-lg-2 control-label">Додатково</label>
+				<div class="col-lg-10">
+					<div class="checkbox">
+						<label>
+							<input type="hidden" name="is_wall" value="0">
+							<input name="is_wall" value="1" type="checkbox"> Аналізувати записи на стіні
+						</label>
+					</div>
+				</div>
+			</div>
 
 			<div class="form-group">
 				<div class="col-lg-10 col-lg-offset-2">

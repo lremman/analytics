@@ -29,6 +29,11 @@ class LikesController extends Controller
 
     public $rating = 1;
 
+    public $legend = [
+        'coord' => 'Мені подобається',
+        'title' => 'Оцінка записів профіля',
+        'label' => 'Рейтинг по оцінках записів',
+    ];
 
     public $filter_map = [
         'sex' => ['sex', '==', '[value]'],
@@ -83,6 +88,7 @@ class LikesController extends Controller
             'likes' => $likes, 
             'users' => $users, 
             'all_posts' => $this->postsRealCount,
+            'legend' => json_encode($this->legend),
             'pages_all' => ceil(count($likes)/$this->items_per_page),
         ])->render();
 

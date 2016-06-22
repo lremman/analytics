@@ -4,7 +4,7 @@
 
 	@if($user)
 
-		<div class="panel panel-primary">
+		<div class="panel panel-primary" data-legend="{{ $legend }}">
 			<div class="panel-heading">
 			  <h3 class="panel-title">{{ $user['first_name'] }} {{ $user['last_name'] }}</h3>
 			</div>

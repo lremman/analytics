@@ -33,6 +33,12 @@ class AudioController extends Controller
 
     public $rating = 1;
 
+    public $legend = [
+        'coord' => 'Оцінка жанра, %',
+        'title' => 'Оцінка жанрів аудіозаписів профіля',
+        'label' => 'Рейтинг по жанрах аудіозаписів профіля',
+    ];
+
     public $audio_genres_list = [
         1 => 'Rock',
         2 => 'Pop',
@@ -92,15 +98,14 @@ class AudioController extends Controller
 
             $genres = $this->getGenresByIds($genres);
 
-            if ($this->noAudio) {
-
-                $wall_genres = $this->getWallAudio('genre', $this->noAudio);
+            if($request->get('is_wall')) {
+                $wall_genres = $this->getWallAudio('genre', $request->get('owner'));
 
                 $wall_genres = $this->filterWallAudioGenres($wall_genres);
 
                 $wall_genres = $this->getGenresByIds($wall_genres);
 
-                $genres = array_merge($genres, $wall_genres);
+                $genres = $this->mergeWallAndProfile($wall_genres, $genres);
             }
 
             return $genres;
@@ -125,6 +130,7 @@ class AudioController extends Controller
             'track_weight' => $this->track_weight,
             'real_count' => $this->audioRealCount,
             'genres' => $genres, 
+            'legend' => json_encode($this->legend),
             'users' => $users]
         )->render();
 
@@ -133,6 +139,31 @@ class AudioController extends Controller
             'graph' => $genres_json,
         ]);
 
+    }
+
+    public function mergeWallAndProfile($wall, $profile)
+    {
+        $user  = array_get($profile, '0.0', array_get($wall, '0.0'));
+        $wall = array_get($wall, '0.1', []);
+        $profile = array_get($profile, '0.1', []);
+
+        foreach($wall as $item => $v)
+        {
+            if(array_get($profile, $item)) {
+                $wall[$item] += array_get($profile, $item);
+                unset($profile[$item]);
+            }
+        }
+
+        foreach($profile as $item)
+        {
+            if(array_get($wall, $item)) {
+                $profile[$item] += array_get($wall, $item);
+                unset($wall[$item]);
+            }
+        }
+
+        return [[$user, array_merge($wall, $profile)]];
     }
 
     /**

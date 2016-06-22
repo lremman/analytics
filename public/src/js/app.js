@@ -61,7 +61,9 @@
 
    var DrawGraph = function ($parent, data) {
 
-   		var coords = [['Move', 'Мені подобається', { role: 'style' }]];
+   		var legend = $('[data-legend]').data('legend');
+
+   		var coords = [['Move', legend.coord, { role: 'style' }]];
 
    		$.each(data, function (key, value) {
    			$.each(value, function (name, rating) {
@@ -74,14 +76,14 @@
 		    var data = new google.visualization.arrayToDataTable(coords);
 
 		    var options = {
-		      title: 'Оцінка записів профіля',
-		      width: $('rating-graph').closest('div').width(),
+		      title: legend.title,
+		      width: $('#graph-width').width(),
 		      height:500,
 		      legend: { position: 'none' },
 		      chart: { subtitle: '' },
 		      axes: {
 		        x: {
-		          0: { side: 'top', label: 'Рейтинг по оцінках записів'} // Top x-axis.
+		          0: { side: 'top', label: legend.label} // Top x-axis.
 		        }
 		      },
 		      bar: { groupWidth: "100%" }

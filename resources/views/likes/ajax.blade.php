@@ -1,4 +1,4 @@
-<table class="table table-striped table-hover ">
+<table class="table table-striped table-hover" data-legend="{{ $legend }}">
 
 	<input type="hidden" name="pages_all" value="{{ $pages_all }}">
 
