@@ -23,6 +23,10 @@
   	</div>
   </div>
   <div class="row">
+    <div class="col-md-12" id="graph-width">
+    </div>
+  </div>
+  <div class="row">
   	<div class="col-md-12">
   		<div class="" id="rating-graph">
 			
