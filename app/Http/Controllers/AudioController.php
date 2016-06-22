@@ -163,7 +163,11 @@ class AudioController extends Controller
             }
         }
 
-        return [[$user, array_merge($wall, $profile)]];
+        $wall_profile = array_merge($wall, $profile);
+
+        arsort($wall_profile);
+
+        return [[$user, $wall_profile]];
     }
 
     /**
